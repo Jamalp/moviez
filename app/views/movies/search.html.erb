@@ -1,0 +1,11 @@
+<h1>Search for a movie</h1>
+
+<form action='/movies/search' method='get'>
+  <input type='text' name='search'>
+  <button>Search</button>
+</form>
+
+
+<% @results.movies.each do |movie|%>
+  <%= movie.title %>
+  <% end %>
