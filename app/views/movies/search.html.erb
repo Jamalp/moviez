@@ -1,11 +1,14 @@
 <h1>Search for a movie</h1>
 
 <form action='/movies/search' method='get'>
-  <input type='text' name='search'>
+  <input type='text' name='title' placehold='Movie Title'>
   <button>Search</button>
 </form>
 
 
 <% @results.movies.each do |movie|%>
-  <%= movie.title %>
+<ul>
+   <a href="/movies/<%= movie.id%>"><li> <%= movie.title %></li></a>
+  </ul>
   <% end %>
+
