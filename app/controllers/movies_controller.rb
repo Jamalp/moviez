@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  def movies
+  def index
     @movies = Movie.all
   end
 
@@ -7,6 +7,9 @@ class MoviesController < ApplicationController
     @movie = Imdb::Movie.new(params[:id])
   end
 
+  def show
+
+  end
 
   def save
     @movie = Imdb::Movie.new(params[:id])
@@ -22,11 +25,15 @@ class MoviesController < ApplicationController
   end
 
   def create
-    movie = Imdb::Search.new(params[:title])
-    movie.title = params[:title]
-    movie.plot = params[:plot]
-    movie.mpaa_rating = params[:mpaa_rating]
-    movie.rating = params[:rating]
+    imdb_movie = Imdb::Movie.new(params[:movie_id])
+    db_movie = Movie.new()
+    db_movie.title = imdb_movie.title
+    db_movie.year = imdb_movie.year
+    db_movie.plot = imdb_movie.plot
+    db_movie.mpaa_rating = imdb_movie.mpaa_rating
+    db_movie.rating = 50
+    db_movie.save
+    redirect_to '/movies'
   end
 end
 

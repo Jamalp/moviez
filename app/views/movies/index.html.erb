@@ -3,6 +3,12 @@
 
 <form action='/movies/search' method='get'>
   <input type='text' name='title'>
-  <button>Search</button>
+  <button>Search</button> <br/>
+
+  <% @movies.each do |movie| %>
+    <%= movie.title %> <br/>
+    <%= movie.plot %> <br/>
+  <% end %>
+
 
 </form>
