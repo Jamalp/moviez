@@ -9,7 +9,8 @@
 <% @results.movies.each do |movie|%>
 <ul>
    <li> <%= movie.title %></li>
-   <%= button_to "Save", movies_path(movie_id: movie.id), method: 'post' %>
+   <%= button_to "Save", movies_path(movie_id: movie.id, favorite: false), method: 'post' %>
+   <%= button_to "Favorite", movies_path(movie_id: movie.id, favorite: true), method: 'post'  %>
   </ul>
   <% end %>
 

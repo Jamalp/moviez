@@ -4,11 +4,13 @@
 <form action='/movies/search' method='get'>
   <input type='text' name='title'>
   <button>Search</button> <br/>
+</form>
 
+<ul>
   <% @movies.each do |movie| %>
-    <%= movie.title %> <br/>
-    <%= movie.plot %> <br/>
+  <li>
+    <%= link_to(movie.title, movie_path(movie.id)) %>
+  </li>
   <% end %>
 
-
-</form>
+</ul>

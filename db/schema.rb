@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710194108) do
+ActiveRecord::Schema.define(:version => 20130711150954) do
 
   create_table "movies", :force => true do |t|
     t.string  "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130710194108) do
     t.text    "plot"
     t.string  "mpaa_rating"
     t.integer "rating"
+    t.boolean "favorite"
   end
 
 end

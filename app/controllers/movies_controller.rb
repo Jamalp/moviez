@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-
+    @movie = Movie.find(params[:id])
   end
 
   def save
@@ -32,6 +32,7 @@ class MoviesController < ApplicationController
     db_movie.plot = imdb_movie.plot
     db_movie.mpaa_rating = imdb_movie.mpaa_rating
     db_movie.rating = 50
+    db_movie.favorite = params[:favorite]
     db_movie.save
     redirect_to '/movies'
   end
